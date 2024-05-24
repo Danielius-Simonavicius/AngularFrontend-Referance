@@ -1,0 +1,67 @@
+<div class="container mt-4">
+    <h2>Draft New Contract</h2>
+    <form (ngSubmit)="submitContract()">
+        <div class="form-group">
+            <label for="contractDate">Contract Date:</label>
+            <input type="date" id="contractDate" [(ngModel)]="contract.contractDate" name="contractDate" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label>Property Address:</label>
+            <input type="text" [(ngModel)]="contract.propertyAddress.line1" name="line1" placeholder="Line 1" class="form-control" required>
+            <input type="text" [(ngModel)]="contract.propertyAddress.line2" name="line2" placeholder="Line 2" class="form-control">
+            <input type="text" [(ngModel)]="contract.propertyAddress.town" name="town" placeholder="Town" class="form-control" required>
+            <input type="text" [(ngModel)]="contract.propertyAddress.countyCity" name="countyCity" placeholder="County/City" class="form-control" required>
+            <input type="text" [(ngModel)]="contract.propertyAddress.eircode" name="eircode" placeholder="EIRCODE" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="feeMonthly">Monthly Fee (€):</label>
+            <input type="number" id="feeMonthly" [(ngModel)]="contract.feeMonthly" name="feeMonthly" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="propertyDoorNumber">Property Door Number:</label>
+            <input type="text" id="propertyDoorNumber" [(ngModel)]="contract.propertyDoorNumber" name="propertyDoorNumber" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="contractLength">Contract Length:</label>
+            <select id="contractLength" [(ngModel)]="contract.contractLength" name="contractLength" class="form-control">
+                <option value="Month">Month</option>
+                <option value="Year">Year</option>
+                <option value="Permanent">Permanent</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="propertyType">Property Type:</label>
+            <select id="propertyType" [(ngModel)]="contract.propertyType" name="propertyType" class="form-control">
+                <option value="Apartment">Apartment</option>
+                <option value="Semi-Detached">Semi-Detached</option>
+                <option value="Detached">Detached</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="landlord">Select Landlord:</label>
+            <select id="landlord" [(ngModel)]="contract.landlordId" name="landlordId" class="form-control">
+                <option *ngFor="let landlord of landlords" [value]="landlord._id">
+                    {{ landlord.firstName }} {{ landlord.lastName }}
+                </option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="tenants">Select Tenants:</label>
+            <select multiple id="tenants" [(ngModel)]="contract.tenantIds" name="tenantIds" class="form-control">
+                <option *ngFor="let tenant of tenants" [value]="tenant._id">
+                    {{ tenant.firstName }} {{ tenant.lastName }}
+                </option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit Contract</button>
+    </form>
+</div>

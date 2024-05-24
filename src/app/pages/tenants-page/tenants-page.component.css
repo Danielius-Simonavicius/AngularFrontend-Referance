@@ -1,0 +1,55 @@
+/* tenants.component.css */
+.content-block-title {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.content-block {
+  margin: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+}
+
+.custom-table th, .custom-table td {
+  text-align: left;
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.custom-table th {
+  background-color: #4CAF50;
+  color: black;
+  font-weight: bold;
+}
+
+
+.custom-table tbody tr {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform, box-shadow;
+}
+
+.custom-table tbody tr:hover {
+  transform: translateY(-3px); /* Lifts the row up slightly */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow to create depth */
+}
+
+.custom-table th, .custom-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+  background-color: white; /* Ensures consistent background across the table */
+}
+
+.custom-table {
+  overflow: hidden; /* Keeps the shadow contained within the table boundaries */
+}

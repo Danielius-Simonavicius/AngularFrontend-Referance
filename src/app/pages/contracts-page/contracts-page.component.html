@@ -1,0 +1,39 @@
+<!-- contracts.component.html -->
+<div class="container mt-4">
+    <h2>Contracts Overview</h2>
+    <button class="btn btn-primary mb-3" [routerLink]="['/draft-contract']">Draft New Contract</button>
+    <div *ngFor="let contract of records" class="card my-3">
+      <div class="card-header">
+        <button class="btn btn-danger" (click)="deleteContract(contract._id)">Delete Contract</button>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ contract?.landlordId?.firstName }} {{ contract?.landlordId?.lastName }} - Property Contract</h5>
+        <p class="mb-1">
+          Contract Date: {{ contract.contractDate | date:'mediumDate' }}<br>
+          Monthly Fee: €{{ contract.feeMonthly }}<br>
+          Contract Length: {{ contract.contractLength }}<br>
+          Property Type: {{ contract.propertyType }}
+        </p>
+        <p class="mb-1">
+          Property Address:<br>
+          {{ contract.propertyAddress.line1 }},
+          {{ contract.propertyAddress.line2 ? contract.propertyAddress.line2 + ', ' : '' }}
+          {{ contract.propertyAddress.town }}, 
+          {{ contract.propertyAddress.countyCity }},
+          {{ contract.propertyAddress.eircode }}
+        </p>
+        <p class="mb-1">
+          Property Door Number: {{ contract.propertyDoorNumber }}
+        </p>
+        <div>
+          <strong>Tenants:</strong>
+          <ul>
+            <li *ngFor="let tenant of contract.tenantIds">
+              {{ tenant?.title }} {{ tenant?.firstName }} {{ tenant.lastName }} - {{ tenant.emailAddress }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  

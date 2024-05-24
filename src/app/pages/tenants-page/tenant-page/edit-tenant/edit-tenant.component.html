@@ -1,0 +1,42 @@
+<div class="tenant-details">
+    <h2>Edit Tenant Information</h2>
+    <form *ngIf="record" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" id="title" [(ngModel)]="record.title" class="form-control" name="title" required>
+        </div>
+  
+        <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" [(ngModel)]="record.firstName" class="form-control" name="firstName" required>
+        </div>
+  
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" [(ngModel)]="record.lastName" class="form-control" name="lastName" required>
+        </div>
+  
+        <div class="form-group">
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="text" id="phoneNumber" [(ngModel)]="record.phoneNumber" class="form-control" name="phoneNumber" required>
+        </div>
+  
+        <div class="form-group">
+            <label for="emailAddress">Email Address:</label>
+            <input type="email" id="emailAddress" [(ngModel)]="record.emailAddress" class="form-control" name="emailAddress" required>
+        </div>
+  
+        <div class="form-group">
+            <label for="homeAddress">Home Address: (readonly)</label>
+            <input type="text" id="line1" [(ngModel)]="record.homeAddress.line1" class="form-control" placeholder="Line 1" name="line1" readonly>
+            <input type="text" id="line2" [(ngModel)]="record.homeAddress.line2" class="form-control" placeholder="Line 2" name="line2" readonly>
+            <input type="text" id="town" [(ngModel)]="record.homeAddress.town" class="form-control" placeholder="Town" name="town" readonly>
+            <input type="text" id="countyCity" [(ngModel)]="record.homeAddress.countyCity" class="form-control" placeholder="County/City" name="countyCity" readonly>
+            <input type="text" id="eircode" [(ngModel)]="record.homeAddress.eircode" class="form-control" placeholder="EIRCODE" name="eircode" readonly>
+        </div>
+  
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <button type="button" class="btn btn-danger" (click)="deleteTenant()">Delete</button>
+    </form>
+  </div>
+  
